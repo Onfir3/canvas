@@ -13,6 +13,7 @@
     <canvas id="xxx" width=300 height=300>
 
     </canvas>
+    <button id="eraser">橡皮擦</button>
     <script>
         var yyy = document.getElementById('xxx');
         var context = yyy.getContext('2d');
@@ -30,31 +31,43 @@
         }
 
 
-        var painting = false
+        var using = false
         var lastPoint = {x:undefined,y:undefined}
         //鼠标点击
         yyy.onmousedown = function(aaa){
-            painting = true
             var x = aaa.clientX
             var y = aaa.clientY
-            lastPoint = {x:x,y:y}
-            console.log(lastPoint)
+            if(eraserEnabled){
+                using = true
+                context.clearRect(x-5,y-5,10,10)
+            }else {
+                using = true
+                lastPoint = {x:x,y:y}
+            }
+            
         }
         
         //鼠标移动
         yyy.onmousemove = function(aaa){
-            if(painting){
+            if(using){
             var x = aaa.clientX
             var y = aaa.clientY
-            var newPoint = {x:x,y:y}
-            drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
-            lastPoint = newPoint
+            if(eraserEnabled){
+                if(using){
+                    context.clearRect(x-5,y-5,10,10)
+                }
+            }else {
+                var newPoint = {x:x,y:y}
+                drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+                lastPoint = newPoint
+            }
+            
             }
             
         }
         //鼠标松开
         yyy.onmouseup = function(aaa){
-            painting = false
+            using = false
         }
 
         function drawCircle(x,y,radius){
@@ -72,6 +85,11 @@
             context.lineTo(x2,y2)
             context.stroke()
             context.closePath()
+        }
+
+        var eraserEnabled = false
+        eraser.onclick = function(){
+            eraserEnabled = !eraserEnabled
         }
     </script>
 </body>

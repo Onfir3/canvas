@@ -5,3 +5,8 @@ body {
     background: pink;
     display: block;
 }
+#eraser {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
