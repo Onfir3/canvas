@@ -13,7 +13,11 @@
     <canvas id="xxx" width=300 height=300>
 
     </canvas>
-    <button id="eraser">橡皮擦</button>
+    <div class="actions">
+        <button id="eraser">橡皮擦</button>
+        <button id="brush">画笔</button>
+    </div>
+    
     <script>
         var yyy = document.getElementById('xxx');
         var context = yyy.getContext('2d');
@@ -22,16 +26,12 @@
 
         listenToMouse(yyy)
 
-
-
-
-
-
         var eraserEnabled = false
         eraser.onclick = function () {
             eraserEnabled = !eraserEnabled
         }
 
+        /************/
         function autoSetCanvasSize(canvas) {
             setCanvasSize()
             window.onresize = function () {
