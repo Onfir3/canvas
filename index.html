@@ -13,7 +13,7 @@
     <canvas id="xxx" width=300 height=300>
 
     </canvas>
-    <div class="actions">
+    <div id="actions" class="actions">
         <button id="eraser">橡皮擦</button>
         <button id="brush">画笔</button>
     </div>
@@ -28,7 +28,12 @@
 
         var eraserEnabled = false
         eraser.onclick = function () {
-            eraserEnabled = !eraserEnabled
+            eraserEnabled = true
+            actions.className = "actions x"
+        }
+        brush.onclick = function(){
+            eraserEnabled = false
+            actions.className = "actions"
         }
 
         /************/
