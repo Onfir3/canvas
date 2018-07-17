@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>canvas</title>
-    <link rel="stylesheet" href="./css/style.css">
+    
 </head>
 
 <body>
@@ -14,11 +15,16 @@
 
     </canvas>
     <div id="actions" class="actions">
-        <button id="eraser">橡皮擦</button>
-        <button id="brush">画笔</button>
+        <svg class="icon">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg class="icon">
+                <use xlink:href="#icon-eraser"></use>
+        </svg>
     </div>
     
     <script src="./js/main.js"></script>
+    <script src="//at.alicdn.com/t/font_751978_qevo1w4g8nf.js"></script>
 </body>
 
 </html>
