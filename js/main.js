@@ -6,58 +6,61 @@ autoSetCanvasSize(yyy)
 
 listenToUser(yyy)
 
+document.body.addEventListener('touchmove',function(e){
+    e.preventDefault();
+})
 var eraserEnabled = false
-pen.onclick = function(){   
+pen.onclick = function () {
     eraserEnabled = false
     pen.classList.add('active')
     eraser.classList.remove('active')
 }
-eraser.onclick = function(){
+eraser.onclick = function () {
     eraserEnabled = true
     eraser.classList.add('active')
     pen.classList.remove('active')
 }
-clear.onclick = function(){
-    context.clearRect(0,0,yyy.width,yyy.height)
+clear.onclick = function () {
+    context.clearRect(0, 0, yyy.width, yyy.height)
 }
-download.onclick = function(){
+download.onclick = function () {
     var url = yyy.toDataURL("image/png")
     console.log(url)
     var a = document.createElement('a')
     document.body.appendChild(a)
-    a.href = url 
+    a.href = url
     a.download = 'xxxx'
     a.click()
 }
 
-red.onclick = function(){
-    context.fillStyle = 'red'  
-    context.strokeStyle = 'red' 
+red.onclick = function () {
+    context.fillStyle = 'red'
+    context.strokeStyle = 'red'
     red.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
 }
-green.onclick = function(){
-    context.fillStyle = 'green'  
-    context.strokeStyle = 'green'  
+green.onclick = function () {
+    context.fillStyle = 'green'
+    context.strokeStyle = 'green'
     green.classList.add('active')
     red.classList.remove('active')
     blue.classList.remove('active')
 }
-blue.onclick = function(){
-    context.fillStyle = 'blue'  
+blue.onclick = function () {
+    context.fillStyle = 'blue'
     context.strokeStyle = 'blue'
-    blue.classList.add('active') 
-    green.classList.remove('active') 
+    blue.classList.add('active')
+    green.classList.remove('active')
     red.classList.remove('active')
 }
 
-thin.onclick = function(){
+thin.onclick = function () {
     lineWidth = 5
     thin.classList.add('active')
     thick.classList.remove('active')
 }
-thick.onclick = function(){
+thick.onclick = function () {
     lineWidth = 10
     thick.classList.add('active')
     thin.classList.remove('active')
